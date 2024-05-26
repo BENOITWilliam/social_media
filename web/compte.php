@@ -69,5 +69,13 @@ if ($db_found) {
 
     echo '</br><a href=index.html><button class="btn btn-dark">Se déconnecter</button></a>';
     echo '</body>';
+
+    if($_SESSION['NC'] == 1){
+      echo '<style>.center {position: relative;top: 10%; left: 50%;transform: translate(-50%, -50%);}</style>
+      <div class="center"><div class="container" id="color">
+      <h3 class="text-center">Actions administrateur :</h3><br>
+      <a href="admin.php"><button class="btn btn-primary">Gérer les utilisateurs</button></a>
+      </div>';
+    }
 }
 ?>
