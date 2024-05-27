@@ -60,7 +60,7 @@ if ($db_found) {
         $_SESSION['Photo'] = $data['Photo'];
         $_SESSION['NC'] = $data['NC'];
 
-        echo 'connecté<meta http-equiv="refresh" content="0; url=http://localhost/web/compte.php">';
+        echo 'connecté<meta http-equiv="refresh" content="0; url=http://localhost/web/accueil.php">';
 
         exit();
     }

@@ -3,9 +3,28 @@
 $database = "likedin";
 session_start();
 
+try {
+    $db_handle = mysqli_connect('localhost', 'root', 'root');
+}
+catch (Exception $e){
+    $error = $e->getMessage();
+    echo $error;
+    exit();
+}
+
+try{
+    $db_found = mysqli_select_db($db_handle, $database);
+}
+catch (Exception $e){
+    $error = $e->getMessage();
+    echo $error;
+    exit();
+}
+
 echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
 <link rel='stylesheet' href='style.css'>";
-
+echo '<body>';
+echo "<style>body { background-image : url('".$_SESSION['Image']."');background-size: cover;background-attachment: fixed;}</style>";
 echo '<div class="container" id="color"><div class="center_nav"><nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="accueil.php">Accueil</a>
@@ -31,41 +50,10 @@ echo '<div class="container" id="color"><div class="center_nav"><nav class="navb
     </div></div>
   </nav></div><br><br>';
 
-try {
-    $db_handle = mysqli_connect('localhost', 'root', 'root');
-}
-catch (Exception $e){
-    $error = $e->getMessage();
-    echo $error;
-    exit();
-}
-
-try{
-    $db_found = mysqli_select_db($db_handle, $database);
-}
-catch (Exception $e){
-    $error = $e->getMessage();
-    echo $error;
-    exit();
-}
-
-echo '<div class="center_c_fond"><div class="container" id="color">';
-
 if ($db_found) {
-    $uploaddir = 'documents/fond/';
-    $uploadfile = $uploaddir . basename($_FILES['fond']['name']);
-    $Id = $_SESSION['ID'];
 
-    if(move_uploaded_file($_FILES['fond']['tmp_name'], $uploadfile))
-    {
-        echo "<br><h3 class='text-center'>L'image de fond à bien été modifié !<br></h3>";
-    }
-    else
-    {
-        echo "<br><h3 class='text-center'>Echec du téléchargement de l'image !<br></h3>";
-    }
+    $sql = "SELECT *  FROM `emploi` WHERE ID_Emploi = '".$_SESSION['ID_Emploi']."'";
 
-    $sql = "UPDATE `utilisateur` SET Image = '$uploadfile' WHERE ID = '$Id';";
     try{
         $result = mysqli_query($db_handle, $sql);
     }
@@ -75,9 +63,21 @@ if ($db_found) {
         exit();
     }
 
-    $_SESSION['Image'] = $uploadfile;
+    $data = mysqli_fetch_assoc($result);
+
+    echo '<div class="container" id="color">';
+
+    echo '<div class="row g-0">
+      <div class="col-sm-6 col-md-8"><br>
+        <h3>Titre de l\'emploi :</h3><h4> '.$data['Nom'].'</h4><br><br>
+        <h3 class="fw-bold">Description : </h3><h4>'.$data['Description'].'</h4><br><br>
+      </div>
+      <div class="col-6 col-md-4">
+          <br><h3 class="fw-bold">Photo : </h3><img src="'.$data['Image'].'" class="img-thumbnail" width="200px" height="200px"><br>
+      </div>
+    </div>
+    <br><a href=offre_emploi.php><button class="btn btn-primary">Page des offres d\'emploi</button></a><br><br></div>';
     
-    echo "<style>body { background-image : url('".$_SESSION['Image']."');background-size: cover;background-attachment: fixed;}</style>";
-    echo '<br><a href=compte.php><button class="btn btn-primary">Page utilisateur</button></a></div></div>';
 }
+
 ?>

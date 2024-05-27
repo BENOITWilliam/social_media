@@ -1,4 +1,4 @@
-#color{background-color: rgb(245, 245, 245);border-radius: 10px;opacity: 90%;}
+#color{background-color: rgba(245, 245, 245, 0.9);border-radius: 10px;}
 
 .center_c_fond {position: relative;top: 20%; left: 50%;transform: translate(-50%, -50%);}
 
@@ -6,6 +6,9 @@
 
 .center_compte {position: relative;top: 10%; left: 50%;transform: translate(-50%, -50%);}
 .center_compte_notif {position: relative;top: 50%; left: 30%; transform: translate(-50%, -50%);}
+
+.center_admin_bouton {display: flex;align-items: center;justify-content: center;}
+#inline {display : inline-block;}
 
 .center_nav {display: flex;align-items: center;justify-content: center;}
 

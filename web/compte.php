@@ -27,7 +27,7 @@ echo '<body>';
 
 if ($db_found) {
 
-    echo "<style>body { background-image : url('".$_SESSION['Image']."');background-size: cover;}</style>";
+    echo "<style>body { background-image : url('".$_SESSION['Image']."');background-size: cover;background-attachment: fixed;}</style>";
 
     echo '<div class="container" id="color"><div class="center_nav"><nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -36,6 +36,9 @@ if ($db_found) {
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="compte.php">Mon compte</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="offre_emploi.php">Offres d\'emploi</a>
           </li>
           <li class="nav-item">
             <div class="center_compte_notif">
@@ -49,13 +52,12 @@ if ($db_found) {
           <a href="index.html"><button class="btn btn-outline-danger" type="submit">Se déconnecter</button></a>
       </div>
     </div></div>
-  </nav></div><br>';
+  </nav></div><br><br>';
 
-    echo '<br>
-    <div class="container" id="color">
+    echo '<div class="container" id="color">
     <h1>Mon compte :</h1>
     <div class="row g-0">
-      <div class="col-sm-6 col-md-8"><br><br>
+      <div class="col-6 col-md-8"><br><br>
         <h3 class="fw-bold">Pseudo : </h3><h4>'.$_SESSION['Pseudo'].'</h4><br><br>
         <h3 class="fw-bold">Adresse mail : </h3><h4>'.$_SESSION['Email'].'</h4><br><br>
         <h3 class="fw-bold">Image de fond : <br></h3>
@@ -79,9 +81,19 @@ if ($db_found) {
     echo '</body>';
 
     if($_SESSION['NC'] == 1){
-      echo '<div class="center_compte"><div class="container" id="color">
+      echo '<div class="container" id="color">
       <h3 class="text-center">Actions administrateur :</h3><br>
-      <a href="admin.php"><button class="btn btn-primary">Gérer les utilisateurs</button></a>
+      <div class="row">
+      <div class="col-sm-4">
+        <center><a href="admin.php"><button class="btn btn-primary">Gérer les utilisateurs</button></a></center>
+      </div>
+      <div class="col-sm-4">
+        <center><a href="admin_menu_emploi.php"><button class="btn btn-primary">Gérer les offres d\'emploi</button></a></center>
+      </div>
+      <div class="col-sm-4">
+        <center><a href="admin.php"><button class="btn btn-primary">Gérer les utilisateurs</button></a></center>
+      </div>
+      </div>
       </div>';
     }
 }
