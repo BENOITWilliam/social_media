@@ -70,6 +70,7 @@ if ($db_found) {
     echo '<div class="row g-0">
       <div class="col-sm-6 col-md-8"><br>
         <h3>Titre de l\'emploi :</h3><h4> '.$data['Nom'].'</h4><br><br>
+        <h3 class="fw-bold">Description courte : </h3><h4>'.$data['Desc_courte'].'</h4><br><br>
         <h3 class="fw-bold">Description : </h3><h4>'.$data['Description'].'</h4><br><br>
       </div>
       <div class="col-6 col-md-4">

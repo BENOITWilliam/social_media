@@ -54,16 +54,13 @@ if ($db_found) {
 
   echo '<br><br><br><div class="container" id="color"><h1>Recherche travail :</h1><br>
   <form method="POST">
-  <input type="text" name="recherche" placeholder="recherche" class="form-control"/><br>
-  <br><br>
+  <input type="text" name="recherche" placeholder="recherche" class="form-control"/><br><br>
   <div class="row">
-    <div class="col-sm-10">
+    <div class="col-sm-1">
       <button type="submit" name="soumettre" value="soumettre" class="btn btn-primary">Rechercher</button></br>
     </div></form>
-    <div class="col-sm-1">
-      <a href=admin_ajouter_emploi.php><button class="btn btn-success">Ajouter une offre</button></a></br>
-    </div>
   </div>
+  <br><a href="admin_ajouter_emploi.php"><button class="btn btn-success">Ajouter une offre</button></a><br><br>
   </div>';
 
   $sql = "SELECT *  FROM `emploi`";

@@ -60,6 +60,8 @@ if ($db_found) {
       <div class="col-6 col-md-8"><br><br>
         <h3 class="fw-bold">Pseudo : </h3><h4>'.$_SESSION['Pseudo'].'</h4><br><br>
         <h3 class="fw-bold">Adresse mail : </h3><h4>'.$_SESSION['Email'].'</h4><br><br>
+        <h3 class="fw-bold">Description : </h3><h4>'.$_SESSION['Description'].'</h4>
+        <a href="c_description.php"><button class="btn btn-primary">Changer la description</button></a><br><br><br>
         <h3 class="fw-bold">Image de fond : <br></h3>
         <form enctype="multipart/form-data" method="POST" action="c_fond.php">
             <input accept="Image/png, Image/jpeg" type="file" id="fond" name="fond" style="display: none"><label for="fond" id="fond" class="btn btn-dark">Choisir un fichier</label><br><br>

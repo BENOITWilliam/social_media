@@ -90,27 +90,27 @@ if ($db_found) {
 
     $uploaddir = 'documents/emploi/';
     $uploadfile = $uploaddir . basename($_FILES['photo']['name']);
-
-    echo '<h1>'.$_FILES['photo']['tmp_name'].'</h1>';
-    $taille = getimagesize($_FILES['photo']['tmp_name']);
-
+    
     //move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)
-
-    if($taille[2]==2){
+    if($uploadfile != $uploaddir){
+      $taille = getimagesize($_FILES['photo']['tmp_name']);
+      if($taille[2]==2){
         $im = imagecreatefromjpeg($_FILES['photo']['tmp_name']);
         $im_crop = imagecreatetruecolor(200, 200);
         imagecopyresampled($im_crop, $im, 0, 0, 0, 0, 200, 200, $taille[0], $taille[1]);
         imagejpeg($im_crop, 'documents/emploi/' . $_FILES['photo']['name'], 90);
     }
-    if($taille[2]==3){
+      if($taille[2]==3){
         $im = imagecreatefrompng($_FILES['photo']['tmp_name']);
         $im_crop = imagecreatetruecolor(200, 200);
         imagecopyresampled($im_crop, $im, 0, 0, 0, 0, 200, 200, $taille[0], $taille[1]);
         imagepng($im_crop, 'documents/emploi/' . $_FILES['photo']['name'], 9);
+      }
+      $sql="UPDATE `emploi` SET Nom = '".$Nom."', Desc_courte = '".$Desc_courte."', Description = '".$Description."', Image = '".$uploadfile."' WHERE ID_Emploi = '".$_SESSION['ID_Emploi']."'";
     }
+    else{$sql="UPDATE `emploi` SET Nom = '".$Nom."', Desc_courte = '".$Desc_courte."', Description = '".$Description."' WHERE ID_Emploi = '".$_SESSION['ID_Emploi']."'";}
     
-    $sql="UPDATE `emploi` SET Nom = '".$Nom."', Desc_courte = '".$Desc_courte."', Description = '".$Description."', Image = '".$uploadfile."' WHERE ID_Emploi = '".$_SESSION['ID_Emploi']."'";
-
+    echo $sql;
     try{
       $result = mysqli_query($db_handle, $sql);
     }

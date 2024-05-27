@@ -4,21 +4,21 @@ $database = "likedin";
 session_start();
 
 try {
-    $db_handle = mysqli_connect('localhost', 'root', 'root');
+  $db_handle = mysqli_connect('localhost', 'root', 'root');
 }
 catch (Exception $e){
-    $error = $e->getMessage();
-    echo $error;
-    exit();
+  $error = $e->getMessage();
+  echo $error;
+  exit();
 }
 
 try{
-    $db_found = mysqli_select_db($db_handle, $database);
+  $db_found = mysqli_select_db($db_handle, $database);
 }
 catch (Exception $e){
-    $error = $e->getMessage();
-    echo $error;
-    exit();
+  $error = $e->getMessage();
+  echo $error;
+  exit();
 }
 
 echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
