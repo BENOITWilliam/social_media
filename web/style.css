@@ -10,6 +10,10 @@
 .center_admin_bouton {display: flex;align-items: center;justify-content: center;}
 #inline {display : inline-block;}
 
+.right {right:100%}
+
+.champ {height: 500px; width:500px;}
+
 .center_nav {display: flex;align-items: center;justify-content: center;}
 
 .center_connexion {position: absolute;top: 35%; left: 50%;transform: translate(-50%, -50%);}
