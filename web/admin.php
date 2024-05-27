@@ -21,27 +21,35 @@ catch (Exception $e){
     exit();
 }
 
-echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>";
+echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='style.css'>";
 echo "<style>body { background-image : url('".$_SESSION['Image']."');background-size: cover;}</style>";
-echo "<style>#color{background-color: white;}</style>";
+
 echo '<body>';
 
 if ($db_found) {
 
-  echo '<div class="container" id="color"><ul class="nav justify-content-center"><ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="compte.php">Mon Compte</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-  </li>
-  </ul></ul></div>';
+  echo '<div class="container" id="color"><div class="center_nav"><nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="accueil.php">Accueil</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="compte.php">Mon compte</a>
+          </li>
+          <li class="nav-item">
+            <div class="center_compte_notif">
+              <a class="nav-link disabled" aria-disabled="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+              </svg>
+              </a>
+            </div>
+          </li>
+        </ul>
+          <a href="index.html"><button class="btn btn-outline-danger" type="submit">Se déconnecter</button></a>
+      </div>
+    </div></div>
+  </nav></div><br>';
 
   echo '<br><br><br><div class="container" id="color"><h1>Recherche utilisateur :</h1><br>
   <form method="POST">
@@ -89,13 +97,11 @@ if ($db_found) {
     echo "<td> " . $data['Email'] . "</td>";
     echo "<td>" . $data['NC'] . "</td>";
     echo '<td><form method="post">
-    <input type="submit" name="sup_'.$data['ID'].'" class="btn btn-danger" value="Supprimer sup_'.$data['ID'].'">
+    <input type="submit" name="sup_'.$data['ID'].'" class="btn btn-danger" value="Supprimer '.$data['ID'].' 🗑️"></input>
     </form></td>';
     echo "</tr>";
 
-
     if(array_key_exists('sup_'.$data['ID'].'',$_POST)){
-
       $n_sql="DELETE FROM `utilisateur` WHERE ID = '".$data['ID']."'";
 
       try{

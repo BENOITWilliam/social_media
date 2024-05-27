@@ -1,1 +1,14 @@
-body { background-image : url('documents/fond/fond3.jpg') }
+#color{background-color: rgb(245, 245, 245);border-radius: 10px;opacity: 90%;}
+
+.center_c_fond {position: relative;top: 20%; left: 50%;transform: translate(-50%, -50%);}
+
+.center_c_photo {position: relative;top: 35%; left: 50%;transform: translate(-50%, -50%);}
+
+.center_compte {position: relative;top: 10%; left: 50%;transform: translate(-50%, -50%);}
+.center_compte_notif {position: relative;top: 50%; left: 30%; transform: translate(-50%, -50%);}
+
+.center_nav {display: flex;align-items: center;justify-content: center;}
+
+.center_connexion {position: absolute;top: 35%; left: 50%;transform: translate(-50%, -50%);}
+.center_connexion_text {position: absolute; left: 50%;transform: translate(-50%, -50%);}
+.center_connexion_bouton {position: absolute;top:120%; left: 50%;transform: translate(-50%, -50%);}

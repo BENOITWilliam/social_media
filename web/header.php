@@ -21,7 +21,8 @@ catch (Exception $e){
     exit();
 }
 
-echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>";
+echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='style.css'>";
 echo '<body>';
 
 if ($db_found) {
