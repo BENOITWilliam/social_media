@@ -1,4 +1,7 @@
 #color{background-color: rgba(245, 245, 245, 0.9);border-radius: 10px;}
+#colorb{background-color: black;border-radius: 10px;}
+#txt_color{color:white;font-size: 0.7em;}
+
 
 .center_c_fond {position: relative;top: 20%; left: 50%;transform: translate(-50%, -50%);}
 
