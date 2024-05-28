@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>CrÃ©ation de compte</title>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
-    <link rel='stylesheet' href='style.css'>
-    <meta charset="utf-8">
-</head>
-
-<style>#color{background-color: white;}</style>
-<style>body {background-image : url('documents/site/fond.jpg');background-size: cover;}</style>
-
-<body>
-    <div class="container">
-        <div class="center_connexion">
-            <h1 class="center_connexion_text">Creez votre compte</h1><br>
-            <form method="POST" action="traitement_crea.php">
-                <div class="container">
-                    <div class="row">
+    <head>
+        <meta charset="utf-8">
+        <title>Création de compte</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='style.css'>
+    </head>
+    <body>
+        <div class="container">
+            <div class="center_connexion">
+                <center><h1>Créer votre compte</h1></center><br>
+                <form method="POST" action="traitement_crea.php">
+                    <div class="container">
                         <label for="nom">Entrez votre Adresse Mail</label>
-                        <input type="email" name="adressemail" placeholder="Adresse Mail" class="form-control"/></br>
+                        <input type="email" name="adressemail" placeholder="Adresse Mail" class="form-control" style="width: 500px;height: 40px;"/></br>
 
                         <label for="nom">Entrez votre Pseudo</label>
-                        <input type="text" name="pseudo" placeholder="Pseudo" class="form-control"/></br>
+                        <input type="text" name="pseudo" placeholder="Pseudo" class="form-control" style="width: 500px;height: 40px;"/></br>
 
                         <label for="nom">Entrez votre Mot de Passe</label>
-                        <input type="password" name="mdp" placeholder="Mot de Passe" class="form-control"/></br></br>
+                        <input type="password" name="mdp" placeholder="Mot de Passe" class="form-control"style="width: 500px;height: 40px;"/></br></br>
 
-                        <p>Vous avez deja un compte chez nous? <a href="index.html">Connectez vous</a></p>
+                        <p>Vous avez déjà un compte chez nous ? <a href="index.html" style="color:whitesmoke">Connectez vous</a></p>
                         
                         <a class="center_connexion_bouton">
                             <br>
-                            <button type="submit" name="soumettre" value="soumettre" class="btn btn-primary">Soumettre</button></br></br>
+                            <button type="submit" name="soumettre" value="soumettre" class="btn btn-primary">valider</button></br></br>
                         </a>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 
 </html>
+
+<style>#color{background-color: white;}</style>
+<style>body {background-image : url('documents/site/fond.jpg');background-size: cover;}</style>
