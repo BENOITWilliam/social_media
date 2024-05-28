@@ -52,32 +52,51 @@ catch (Exception $e){
 echo '<div class="center_c_fond"><div class="container" id="color">';
 
 if ($db_found) {
-    $uploaddir = 'documents/fond/';
-    $uploadfile = $uploaddir . basename($_FILES['fond']['name']);
-    $Id = $_SESSION['ID'];
+  $uploaddir = 'documents/fond/';
+  $uploadfile = $uploaddir . basename($_FILES['fond']['name']);
+  $Id = $_SESSION['ID'];
 
-    if(move_uploaded_file($_FILES['fond']['tmp_name'], $uploadfile))
-    {
-        echo "<br><h3 class='text-center'>L'image de fond à bien été modifié !<br></h3>";
-    }
-    else
-    {
-        echo "<br><h3 class='text-center'>Echec du téléchargement de l'image !<br></h3>";
-    }
+  if(move_uploaded_file($_FILES['fond']['tmp_name'], $uploadfile))
+  {
+      echo "<br><h3 class='text-center'>L'image de fond à bien été modifié !<br></h3>";
+  }
+  else
+  {
+      echo "<br><h3 class='text-center'>Echec du téléchargement de l'image !<br></h3>";
+  }
 
-    $sql = "UPDATE `utilisateur` SET Image = '$uploadfile' WHERE ID = '$Id';";
-    try{
-        $result = mysqli_query($db_handle, $sql);
-    }
-    catch (Exception $e){
-        $error = $e->getMessage();
-        echo $error;
-        exit();
-    }
+  $sql = "UPDATE `utilisateur` SET Image = '$uploadfile' WHERE ID = '$Id';";
+  try{
+      $result = mysqli_query($db_handle, $sql);
+  }
+  catch (Exception $e){
+      $error = $e->getMessage();
+      echo $error;
+      exit();
+  }
 
-    $_SESSION['Image'] = $uploadfile;
-    
-    echo "<style>body { background-image : url('".$_SESSION['Image']."');background-size: cover;background-attachment: fixed;}</style>";
-    echo '<br><a href=compte.php><button class="btn btn-primary">Page utilisateur</button></a></div></div>';
+  $_SESSION['Image'] = $uploadfile;
+  
+  echo "<style>body { background-image : url('".$_SESSION['Image']."');background-size: cover;background-attachment: fixed;}</style>";
+  echo '<br><a href=compte.php><button class="btn btn-primary">Page utilisateur</button></a></div></div>';
+
+  echo '</div><div class="container"><br><br><br><br><br><br></div></body>';
+  echo '<footer>
+  <div class="container" id="colorb"><br>
+      <div class="row">
+      <div class="col-sm-4">
+          <center><p id="txt_color">Copyright © 2024 Volpe Inc. Tous droits réservés.</p></center>
+          <center><p id="txt_color">France</p></center>
+      </div>
+      <div class="col-sm-4">
+          <center><a href="#"><p id="txt_color">Politique de confidentialité</p></a></center>
+          <center><a href="#"><p id="txt_color">Politique relative aux cookies</p></a></center>
+      </div>
+      <div class="col-sm-4">
+          <center><a href="#"><p id="txt_color">Politique</p></a></center>
+          <center><a href="#"><p id="txt_color">Conditions générales d\'utilisation</p></a></center>
+      </div>
+  </div>
+  </footer>';
 }
 ?>
