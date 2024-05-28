@@ -125,6 +125,25 @@ if ($db_found) {
     }
   }
   echo "</tbody> </table></div>";
+
+  echo '</div><div class="container"><br><br><br><br><br><br></div></body>';
+  echo '<footer>
+  <div class="container" id="colorb"><br>
+      <div class="row">
+      <div class="col-sm-4">
+          <center><p id="txt_color">Copyright © 2024 Volpe Inc. Tous droits réservés.</p></center>
+          <center><p id="txt_color">France</p></center>
+      </div>
+      <div class="col-sm-4">
+          <center><a href="#"><p id="txt_color">Politique de confidentialité</p></a></center>
+          <center><a href="#"><p id="txt_color">Politique relative aux cookies</p></a></center>
+      </div>
+      <div class="col-sm-4">
+          <center><a href="#"><p id="txt_color">Politique</p></a></center>
+          <center><a href="#"><p id="txt_color">Conditions générales d\'utilisation</p></a></center>
+      </div>
+  </div>
+  </footer>';
     
 }
 
