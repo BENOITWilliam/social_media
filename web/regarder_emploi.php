@@ -52,33 +52,51 @@ echo '<div class="container" id="color"><div class="center_nav"><nav class="navb
 
 if ($db_found) {
 
-    $sql = "SELECT *  FROM `emploi` WHERE ID_Emploi = '".$_SESSION['ID_Emploi']."'";
+  $sql = "SELECT *  FROM `emploi` WHERE ID_Emploi = '".$_SESSION['ID_Emploi']."'";
 
-    try{
-        $result = mysqli_query($db_handle, $sql);
-    }
-    catch (Exception $e){
-        $error = $e->getMessage();
-        echo $error;
-        exit();
-    }
+  try{
+      $result = mysqli_query($db_handle, $sql);
+  }
+  catch (Exception $e){
+      $error = $e->getMessage();
+      echo $error;
+      exit();
+  }
 
-    $data = mysqli_fetch_assoc($result);
+  $data = mysqli_fetch_assoc($result);
 
-    echo '<div class="container" id="color">';
+  echo '<div class="container" id="color">';
 
-    echo '<div class="row g-0">
-      <div class="col-sm-6 col-md-8"><br>
-        <h3>Titre de l\'emploi :</h3><h4> '.$data['Nom'].'</h4><br><br>
-        <h3 class="fw-bold">Description courte : </h3><h4>'.$data['Desc_courte'].'</h4><br><br>
-        <h3 class="fw-bold">Description : </h3><h4>'.$data['Description'].'</h4><br><br>
-      </div>
-      <div class="col-6 col-md-4">
-          <br><h3 class="fw-bold">Photo : </h3><img src="'.$data['Image'].'" class="img-thumbnail" width="200px" height="200px"><br>
-      </div>
+  echo '<div class="row g-0">
+    <div class="col-sm-6 col-md-8"><br>
+      <h3>Titre de l\'emploi :</h3><h4> '.$data['Nom'].'</h4><br><br>
+      <h3 class="fw-bold">Description courte : </h3><h4>'.$data['Desc_courte'].'</h4><br><br>
+      <h3 class="fw-bold">Description : </h3><h4>'.$data['Description'].'</h4><br><br>
     </div>
-    <br><a href=offre_emploi.php><button class="btn btn-primary">Page des offres d\'emploi</button></a><br><br></div>';
-    
+    <div class="col-6 col-md-4">
+        <br><h3 class="fw-bold">Photo : </h3><img src="'.$data['Image'].'" class="img-thumbnail" width="200px" height="200px"><br>
+    </div>
+  </div>
+  <br><a href=offre_emploi.php><button class="btn btn-primary">Page des offres d\'emploi</button></a><br><br></div>';
+  
+  echo '</div><div class="container"><br><br><br><br><br><br></div></body>';
+  echo '<footer>
+  <div class="container" id="colorb"><br>
+      <div class="row">
+      <div class="col-sm-4">
+          <center><p id="txt_color">Copyright © 2024 Volpe Inc. Tous droits réservés.</p></center>
+          <center><p id="txt_color">France</p></center>
+      </div>
+      <div class="col-sm-4">
+          <center><a href="#"><p id="txt_color">Politique de confidentialité</p></a></center>
+          <center><a href="#"><p id="txt_color">Politique relative aux cookies</p></a></center>
+      </div>
+      <div class="col-sm-4">
+          <center><a href="#"><p id="txt_color">Politique</p></a></center>
+          <center><a href="#"><p id="txt_color">Conditions générales d\'utilisation</p></a></center>
+      </div>
+  </div>
+  </footer>';
 }
 
 ?>
