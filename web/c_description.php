@@ -65,7 +65,7 @@ if ($db_found) {
         $Description = isset($_POST['Description']) ? $_POST['Description'] :'';
         $Id = $_SESSION['ID'];
         
-        $sql = "UPDATE `utilisateur` SET Description = '$Description' WHERE ID = '$Id';";
+        $sql = 'UPDATE `utilisateur` SET Description = "'.$Description.'" WHERE ID = "'.$Id.'"';
     
         try{
           $result = mysqli_query($db_handle, $sql);
