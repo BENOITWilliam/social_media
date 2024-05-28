@@ -69,8 +69,8 @@ if ($db_found) {
 
   echo '<form enctype="multipart/form-data" method="POST"><div class="row g-0">
     <div class="col-sm-6 col-md-8"><br>
-      <h3>Titre de l\'emploi :</h3><h4> <input type="text" class="form-control" style="width: 700px;" name="Nom" value="'.$data['Nom'].'"/></h4><br><br>
-      <h3 class="fw-bold">Description courte : </h3><textarea size="100" name="Desc_courte" class="form-control" style="width: 700px;height: 100px;">'.$data['Desc_courte'].'</textarea><br><br>
+      <h3>Titre de l\'emploi :</h3><h4> <input type="text" class="form-control" maxlength="30" style="width: 700px;" name="Nom" value="'.$data['Nom'].'"/></h4><br><br>
+      <h3 class="fw-bold">Description courte : </h3><textarea size="100" name="Desc_courte" class="form-control" maxlength="75" style="width: 700px;height: 100px;">'.$data['Desc_courte'].'</textarea><br><br>
       <h3 class="fw-bold">Description : </h3><textarea size="100" name="Description" class="form-control" style="width: 700px;height: 400px;">'.$data['Description'].'</textarea><br><br>
     </div>
     <div class="col-6 col-md-4">
@@ -106,11 +106,10 @@ if ($db_found) {
         imagecopyresampled($im_crop, $im, 0, 0, 0, 0, 200, 200, $taille[0], $taille[1]);
         imagepng($im_crop, 'documents/emploi/' . $_FILES['photo']['name'], 9);
       }
-      $sql="UPDATE `emploi` SET Nom = '".$Nom."', Desc_courte = '".$Desc_courte."', Description = '".$Description."', Image = '".$uploadfile."' WHERE ID_Emploi = '".$_SESSION['ID_Emploi']."'";
+      $sql='UPDATE `emploi` SET Nom = "'.$Nom.'", Desc_courte = "'.$Desc_courte.'", Description = "'.$Description.'", Image = "'.$uploadfile.'" WHERE ID_Emploi = "'.$_SESSION['ID_Emploi'].'"';
     }
-    else{$sql="UPDATE `emploi` SET Nom = '".$Nom."', Desc_courte = '".$Desc_courte."', Description = '".$Description."' WHERE ID_Emploi = '".$_SESSION['ID_Emploi']."'";}
+    else{$sql='UPDATE `emploi` SET Nom = "'.$Nom.'", Desc_courte = "'.$Desc_courte.'", Description = "'.$Description.'" WHERE ID_Emploi = "'.$_SESSION['ID_Emploi'].'"';}
     
-    echo $sql;
     try{
       $result = mysqli_query($db_handle, $sql);
     }
