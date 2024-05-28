@@ -23,9 +23,13 @@ catch (Exception $e){
 
 echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
 <link rel='stylesheet' href='style.css'>";
-echo '<body>';
 echo "<style>body { background-image : url('".$_SESSION['Image']."');background-size: cover;background-attachment: fixed;}</style>";
-echo '<div class="container" id="color"><div class="center_nav"><nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+echo '<body>';
+
+if ($db_found) {
+
+  echo '<div class="container" id="color"><div class="center_nav"><nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="accueil.php">Accueil</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -50,38 +54,91 @@ echo '<div class="container" id="color"><div class="center_nav"><nav class="navb
     </div></div>
   </nav></div><br><br>';
 
-if ($db_found) {
+  echo '<br><br><br><div class="container" id="color"><h1>Recherche utilisateur :</h1><br>
+  <form method="POST">
+  <input type="text" name="recherche" placeholder="recherche" class="form-control"/><br>
+  <select name="choix" id="choix">
+  <option value="">--Option de recherche--</option>
+  <option value="Pseudo">Pseudo</option>
+  <option value="Email">Email</option>
+  <option value="ID">ID</option>
+  </select><br><br>
+  <button type="submit" name="soumettre" value="soumettre" class="btn btn-primary">Rechercher</button></br>
+  </form>
+  <br>
+  </div>';
+  $sql = "SELECT ID,Pseudo,Email,NC FROM `utilisateur`";
+  if(array_key_exists('soumettre',$_POST)){
+    $recherche = isset($_POST['recherche']) ? $_POST['recherche'] :'';
+    $choix = isset($_POST['choix']) ? $_POST['choix'] :'';
 
-    echo '<div class="container" id="color">
-    <form enctype="multipart/form-data" method="POST">
-    <h3 class="fw-bold">Description :</h3><br>
-    <textarea size="100" name="Description" class="form-control" style="width: 1100px;height: 400px;">'.$_SESSION['Description'].'</textarea><br><br>
-    <button type="submit" name="soumettre" value="soumettre" class="btn btn-success">Enregistrer la description</button><br><br>
-    </form>
-    </div>';
+    if($choix == 'Pseudo'){$sql="SELECT ID,Pseudo,Email,NC FROM `utilisateur` WHERE Pseudo LIKE '%$recherche%'";}
+    else if($choix == 'Email'){$sql="SELECT ID,Pseudo,Email,NC FROM `utilisateur` WHERE Email LIKE '%$recherche%'";}
+    else if($choix == 'ID'){$sql="SELECT ID,Pseudo,Email,NC FROM `utilisateur` WHERE ID LIKE '$recherche%'";}
+  }
+  
 
-    if(array_key_exists('soumettre',$_POST)){
-          
-        $Description = isset($_POST['Description']) ? $_POST['Description'] :'';
-        $Id = $_SESSION['ID'];
-        
-        $sql = 'UPDATE `utilisateur` SET Description = "'.$Description.'" WHERE ID = "'.$Id.'"';
-    
-        try{
-          $result = mysqli_query($db_handle, $sql);
-        }
-        catch (Exception $e){
+  try{
+    $result = mysqli_query($db_handle, $sql);
+  }
+  catch (Exception $e){
+      $error = $e->getMessage();
+      echo $error;
+      exit();
+  }
+
+  echo '<br><br><br><div class="container-sm" id="color">';
+
+  echo "<table class='table'> <thead class='thead-dark'> <tr> <th scope='col'>ID</th> <th scope='col'>Pseudo</th> <th scope='col'>Email</th> <th scope='col'>NC</th> 
+  <th scope='col'>Supprimer</th> <tbody>";
+
+
+  while ($data = mysqli_fetch_assoc($result)) {
+    echo "<tr>";
+    echo "<td>" . $data['ID'] . "</td>";
+    echo "<td>" . $data['Pseudo'] . "</td>";
+    echo "<td> " . $data['Email'] . "</td>";
+    echo "<td>" . $data['NC'] . "</td>";
+    echo '<td><form method="post">
+    <input type="submit" name="sup_'.$data['ID'].'" class="btn btn-danger" value="Supprimer '.$data['ID'].' 🗑️"></input>
+    </form></td>';
+    echo "</tr>";
+
+    if(array_key_exists('sup_'.$data['ID'].'',$_POST)){
+      $n_sql="DELETE FROM `utilisateur` WHERE ID = '".$data['ID']."'";
+
+      try{
+        $n_result = mysqli_query($db_handle, $n_sql);
+      }
+      catch (Exception $e){
           $error = $e->getMessage();
           echo $error;
           exit();
-        }
-
-        $_SESSION['Description'] = $Description;
-    
-        header("Location: http://localhost/web/compte.php");
-    
       }
-    
-}
 
+      header("Refresh:0");
+    }
+  }
+  echo "</tbody> </table></div>";
+
+  echo '</div><div class="container"><br><br><br><br><br><br></div></body>';
+  echo '<footer>
+  <div class="container" id="colorb"><br>
+      <div class="row">
+      <div class="col-sm-4">
+          <center><p id="txt_color">Copyright © 2024 Volpe Inc. Tous droits réservés.</p></center>
+          <center><p id="txt_color">France</p></center>
+      </div>
+      <div class="col-sm-4">
+          <center><a href="#"><p id="txt_color">Politique de confidentialité</p></a></center>
+          <center><a href="#"><p id="txt_color">Politique relative aux cookies</p></a></center>
+      </div>
+      <div class="col-sm-4">
+          <center><a href="#"><p id="txt_color">Politique</p></a></center>
+          <center><a href="#"><p id="txt_color">Conditions générales d\'utilisation</p></a></center>
+      </div>
+  </div>
+  </footer>';
+
+}
 ?>
