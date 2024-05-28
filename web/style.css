@@ -1,7 +1,4 @@
 #color{background-color: rgba(245, 245, 245, 0.9);border-radius: 10px;}
-#colorb{background-color: black;border-radius: 10px;}
-#txt_color{color:white;font-size: 0.7em;}
-
 
 .center_c_fond {position: relative;top: 20%; left: 50%;transform: translate(-50%, -50%);}
 
@@ -22,3 +19,9 @@
 .center_connexion {position: absolute;top: 35%; left: 50%;transform: translate(-50%, -50%);}
 .center_connexion_text {position: absolute; left: 50%;transform: translate(-50%, -50%);}
 .center_connexion_bouton {position: absolute;top:120%; left: 50%;transform: translate(-50%, -50%);}
+
+.error-container {text-align: center; margin-top: 13%;}
+.error-message {color: black;}
+
+.bienvenue-container {text-align: center; margin-top: 10%;}
+.bienvenue-message {color: black;}
