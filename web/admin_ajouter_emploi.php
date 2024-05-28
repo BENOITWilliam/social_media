@@ -58,8 +58,8 @@ if ($db_found) {
       
         echo '<form enctype="multipart/form-data" method="POST"><div class="row g-0">
           <div class="col-sm-6 col-md-8"><br>
-            <h3>Titre de l\'emploi :</h3><h4> <input type="text" class="form-control" style="width: 700px;" name="Nom" value=""/></h4><br><br>
-            <h3 class="fw-bold">Description courte : </h3><textarea size="100" name="Desc_courte" class="form-control" style="width: 700px;height: 100px;"></textarea><br><br>
+            <h3>Titre de l\'emploi :</h3><h4> <input type="text" class="form-control" maxlength="30" style="width: 700px;" name="Nom" value=""/></h4><br><br>
+            <h3 class="fw-bold">Description courte : </h3><textarea size="100" name="Desc_courte" class="form-control" maxlength="75" style="width: 700px;height: 100px;"></textarea><br><br>
             <h3 class="fw-bold">Description : </h3><textarea size="100" name="Description" class="form-control" style="width: 700px;height: 400px;"></textarea><br><br>
           </div>
           <div class="col-6 col-md-4">
@@ -80,26 +80,28 @@ if ($db_found) {
           $uploaddir = 'documents/emploi/';
           $uploadfile = $uploaddir . basename($_FILES['photo']['name']);
       
-          echo '<h1>'.$_FILES['photo']['tmp_name'].'</h1>';
-          $taille = getimagesize($_FILES['photo']['tmp_name']);
-      
-          //move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)
-      
-          if($taille[2]==2){
+          
+          if($uploadfile != $uploaddir){
+            $taille = getimagesize($_FILES['photo']['tmp_name']);
+        
+            //move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)
+        
+            if($taille[2]==2){
               $im = imagecreatefromjpeg($_FILES['photo']['tmp_name']);
               $im_crop = imagecreatetruecolor(200, 200);
               imagecopyresampled($im_crop, $im, 0, 0, 0, 0, 200, 200, $taille[0], $taille[1]);
               imagejpeg($im_crop, 'documents/emploi/' . $_FILES['photo']['name'], 90);
-          }
-          if($taille[2]==3){
+            }
+            if($taille[2]==3){
               $im = imagecreatefrompng($_FILES['photo']['tmp_name']);
               $im_crop = imagecreatetruecolor(200, 200);
               imagecopyresampled($im_crop, $im, 0, 0, 0, 0, 200, 200, $taille[0], $taille[1]);
               imagepng($im_crop, 'documents/emploi/' . $_FILES['photo']['name'], 9);
+            }
+            $sql = 'INSERT INTO `emploi` (Nom,Desc_courte,Description,Image) VALUES ("'.$Nom.'","'.$Desc_courte.'","'.$Description.'","'.$uploadfile.'")';
           }
-          
-          $sql = "INSERT INTO `emploi` (Nom,Desc_courte,Description,Image) VALUES ('".$Nom."','".$Desc_courte."','".$Description."','".$uploadfile."')";
-      
+          else{$sql = 'INSERT INTO `emploi` (Nom,Desc_courte,Description,Image) VALUES ("'.$Nom.'","'.$Desc_courte.'","'.$Description.'","documents/emploi/emploi")';}
+
           try{
             $result = mysqli_query($db_handle, $sql);
           }
