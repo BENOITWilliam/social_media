@@ -2,10 +2,10 @@
 -- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 28, 2024 at 09:42 AM
--- Server version: 5.7.24
--- PHP Version: 8.0.1
+-- Hôte : localhost:3306
+-- Généré le : mer. 29 mai 2024 à 14:47
+-- Version du serveur : 5.7.24
+-- Version de PHP : 8.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,54 +18,54 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `likedin`
+-- Base de données : `likedin`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilisateur`
+-- Structure de la table `utilisateur`
 --
 
 CREATE TABLE `utilisateur` (
   `ID` int(11) NOT NULL,
-  `Pseudo` varchar(255) DEFAULT NULL,
-  `Email` varchar(255) DEFAULT NULL,
-  `MDP` varchar(255) DEFAULT NULL,
-  `NC` int(11) DEFAULT NULL,
-  `Image` varchar(255) DEFAULT NULL,
-  `Photo` varchar(255) DEFAULT NULL,
+  `Pseudo` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `MDP` varchar(255) NOT NULL,
+  `NC` int(11) NOT NULL DEFAULT '0',
+  `Image` varchar(255) NOT NULL DEFAULT 'documents/fond/fond.jpg',
+  `Photo` varchar(255) NOT NULL DEFAULT 'documents/photo/photo.jpg',
   `Description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `utilisateur`
+-- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`ID`, `Pseudo`, `Email`, `MDP`, `NC`, `Image`, `Photo`, `Description`) VALUES
-(1, 'Sowgan', 's.g@gmail.com', '123', 1, 'documents/fond/test.jpg', 'documents/photo/photo.jpg', ''),
-(2, 'Teemo', 'Teemo.demon@faille.invocateur', '456', 0, 'documents/fond/teemo.png', 'documents/photo/teemo.png', ''),
-(3, 'Zoro', 'chiot@edu.fr', '741', 0, NULL, NULL, NULL);
+(1, 'Sowgan', 's.g@gmail.com', '123', 1, 'documents/fond/test.jpg', 'documents/photo/photo.jpg', 'Je peux changer la description'),
+(2, 'Teemo', 'Teemo.demon@faille.invocateur', '456', 1, 'documents/fond/teemo.png', 'documents/photo/17018.jpg', ''),
+(3, 'test', 'test@laposte', '123', 0, 'documents/fond/fond.jpg', 'documents/photo/photo.jpg', '');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `utilisateur`
+-- Index pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `utilisateur`
+-- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -46,13 +46,30 @@ if ($db_found) {
           <input accept="Image/png, Image/jpeg" type="file" id="photo" name="photo" style="display: none"><label for="photo" id="photo" class="btn btn-dark">Choisir un fichier</label><br><br>
           <button type="submit" name="soumettre" value="soumettre" class="btn btn-primary">Soumettre</button></br></br>
         </form>
+        <br><br><br><br>
+        <form enctype="multipart/form-data" method="POST" id="form_cv">
+          <input accept="text/xml" type="file" onchange="document.getElementById(`form_cv`).submit()" id="cv" name="cv" style="display: none"><label for="cv" id="cv" class="btn btn-dark">Charger votre CV</label>
+        </form>
+        <a href="afficher_cv.php"><button name="affciher_cv" class="btn btn-primary">Afficher CV</button></a>
     </div>
   </div>
   </div>';
 
+  if(isset($_FILES)){
+    $nom_fichier = $_FILES['cv']['name'];
+    if($nom_fichier!=NULL){
+      $uploaddir = 'documents/cv/cv';
+      $uploadfile = $uploaddir . $_SESSION['ID'].'.xml';
+      rename($_FILES['cv']['tmp_name'],$uploadfile);
+    }
+    //echo '<input accept="text/xml" type="file" id="input_cv" name="input_cv" style="display: none">';
+    //echo '<meta http-equiv="refresh" content="0; url=index.html">';
+  }
 
-  echo '</br>';
+
+
   
+  echo '</br>';  
 
   if($_SESSION['NC'] == 1){
     echo '<div class="container" id="color">
@@ -70,6 +87,9 @@ if ($db_found) {
     </div>
     </div>';
   }
+
+
+
 
   echo '</br></br>';
 
@@ -89,7 +109,7 @@ if ($db_found) {
   while ($data = mysqli_fetch_assoc($result)){
     echo '<center><img src="'.$data['Lien'].'" class="img-thumbnail" width="250px" height="200px"><br></center><br>';
 
-    if($$data['Description'] != NULL || $data['Date'] != NULL || $data['Heure'] != NULL || $data['Lieu'] != NULL){
+    if($data['Description'] != NULL || $data['Date'] != NULL || $data['Heure'] != NULL || $data['Lieu'] != NULL){
       echo '<center><button type="button" class="btn btn-secondary" onclick="toggle_text(`span_txt'.$data['ID_Post'].'`);">Afficher description</button></center><br>
       <span id="span_txt'.$data['ID_Post'].'" style="display:none;">
       <div class="row">

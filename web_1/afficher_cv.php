@@ -1,10 +1,32 @@
 <?php
-echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
-<link rel='stylesheet' href='style.css'>";
-echo '<div class="container" style="background-color: lightblue">';
 
-//le fichier xml est au même niveau que le fichier PHP qui le manipule
-$fichier = 'documents/cv/cv1.xml';
+$database = "likedin";
+session_start();
+
+try {
+    $db_handle = mysqli_connect('localhost', 'root', 'root');
+}
+catch (Exception $e){
+    $error = $e->getMessage();
+    echo $error;
+    exit();
+}
+
+try{
+    $db_found = mysqli_select_db($db_handle, $database);
+}
+catch (Exception $e){
+    $error = $e->getMessage();
+    echo $error;
+    exit();
+}
+
+require("importation.php");
+importation();
+
+echo '<div class="container" id="color">';
+
+$fichier = 'documents/cv/cv'.$_SESSION['ID'].'.xml';
 $contenu = simplexml_load_file($fichier);
 
 
@@ -12,7 +34,7 @@ foreach($contenu as $cv) {
 
     echo '
     <div class="row">
-        <div class="col-sm-3" style="background-color:aqua">
+        <div class="col-sm-3" id="colorcv">
             <center>
             <br><br><img src="'.$cv->photo.'" class="img-thumbnail" width="200px" height="200px"><br>
             <br><br><br>

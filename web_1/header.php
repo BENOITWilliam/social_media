@@ -23,7 +23,6 @@ catch (Exception $e){
 
 echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
 <link rel='stylesheet' href='style.css'>";
-echo "<style>body {background-image : url('documents/site/fond.jpg');background-size: cover;}</style>";
 echo '<body>';
 
 if ($db_found) {
@@ -31,9 +30,8 @@ if ($db_found) {
     $mdp = isset($_POST['mdp']) ? $_POST['mdp'] :'';
 
     if(empty($pseudo) || empty($mdp)){
-        echo '<div class="error-container">';
-        if(empty($pseudo)){echo '<p class="error-message">Aucun Pseudo rentré</p></br>';}
-        if(empty($mdp)){echo '<p class="error-message">Aucun MDP rentré</p></br>';}
+        if(empty($pseudo)){echo 'Aucun Pseudo rentré</br>';}
+        if(empty($mdp)){echo 'Aucun MDP rentré</br>';}
 
         echo '</br><a href=index.html><button class="btn btn-dark">Page Connexion</button></a>';
         exit();
@@ -63,7 +61,7 @@ if ($db_found) {
         $_SESSION['NC'] = $data['NC'];
         $_SESSION['Description'] = $data['Description'];
 
-        echo 'connecté<meta http-equiv="refresh" content="0; url=http://localhost/web_1/accueil.php">';
+        echo 'connecté<meta http-equiv="refresh" content="0; url=http://localhost/web/accueil.php">';
 
         exit();
     }

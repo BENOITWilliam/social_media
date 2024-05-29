@@ -60,7 +60,7 @@ if ($db_found) {
     }
 
     if (($erreur) == true) {
-        echo '</br><a href=crea.html><button class="btn btn-dark">Page De Création De Compte</button></a>';
+        echo '</br><a href=crea.php><button class="btn btn-dark">Page De Création De Compte</button></a>';
     }
     
 
