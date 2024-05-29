@@ -27,6 +27,11 @@ html {height: 100%;}
 body {min-height: 100%;margin: 0;padding: 0;position: relative;}
 footer {position: absolute; bottom: -130; left: 0; right: 0;}
 
+.error-container {text-align: center; margin-top: 13%;}
+.error-message {color: black;}
+.bienvenue-container {text-align: center; margin-top: 10%;}
+.bienvenue-message {color: black;}
+
 .container-fluid-accueil {padding-top: 20px;}
 .carousel-item img {height: 300px;object-fit: cover;}
 .post {background-color: #fff;border-radius: 10px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);margin-bottom: 20px;padding: 20px;}
