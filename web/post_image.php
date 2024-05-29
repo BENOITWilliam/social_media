@@ -54,7 +54,7 @@ if ($db_found) {
         <div class="col-md-6 offset-md-3">
         <h3 class="card-title">Créer une publication</h>
             <br><h6 class="card-subtitle mb-2 text-muted">veuillez choisir le fichier à publier (photo ou vidéo)</h6>
-        <form enctype="multipart/form-data" method="POST" action="publier2.php">
+        <form enctype="multipart/form-data" method="POST" action="post_complement.php">
             <input accept="Image/png, Image/jpeg, Video/*" type="file" id="photo" required name="photo" style="display: none"><label for="photo" id="photo" class="btn btn-dark">Choisir un fichier</label><br><br>
             <button type="submit" name="soumettre" value="soumettre" class="btn btn-primary">Soumettre</button></br></br>
         </form>
