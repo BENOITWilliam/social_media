@@ -2,6 +2,7 @@
 #colorb{background-color: rgba(0, 0, 0, 0.85);border-radius: 10px;}
 #txt_color{color:white;font-size: 0.7em;}
 
+#colorcv{background-color: rgba(211, 211, 211, 0.9);border-radius: 10px;}
 
 .center_c_fond {position: relative;top: 20%; left: 50%;transform: translate(-50%, -50%);}
 
