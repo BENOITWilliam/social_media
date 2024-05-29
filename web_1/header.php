@@ -61,7 +61,7 @@ if ($db_found) {
         $_SESSION['NC'] = $data['NC'];
         $_SESSION['Description'] = $data['Description'];
 
-        echo 'connecté<meta http-equiv="refresh" content="0; url=http://localhost/web/accueil.php">';
+        echo 'connecté<meta http-equiv="refresh" content="0; url=http://localhost/web_1/accueil.php">';
 
         exit();
     }
