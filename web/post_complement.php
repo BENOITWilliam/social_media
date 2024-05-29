@@ -113,7 +113,7 @@ if ($db_found) {
     echo '<div class="row">
             <div class="col-md-100 offset-md-5">
             <h3 class="card-title">Créer une publication</h3>
-            <form method="POST" action="publier3.php">
+            <form method="POST" action="post_confirmation.php">
                 <label for="date">Date:</label>
                 <input type="date" id="date" name="date" ><br><br>
                 <label for="heure">Heure:</label>
