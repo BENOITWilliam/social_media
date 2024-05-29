@@ -21,6 +21,7 @@ catch (Exception $e){
   exit();
 }
 
+if($_SESSION['ID']==NULL){echo'<meta http-equiv="refresh" content="0; url=http://localhost/web/index.html">';exit();}
 echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
 <link rel='stylesheet' href='style.css'>";
 echo '<body>';
@@ -45,14 +46,15 @@ echo '<div class="container" id="color"><div class="center_nav"><nav class="navb
             </div>
           </li>
         </ul>
-          <a href="index.html"><button class="btn btn-outline-danger" type="submit">Se déconnecter</button></a>
+          <a href="deconnexion.php"><button class="btn btn-outline-danger" type="submit">Se déconnecter</button></a>
       </div>
     </div></div>
   </nav></div><br><br>';
 
 if ($db_found) {
 
-    echo '<div class="container" id="color"><h1>Connecté</h1></div>';
+    echo '<div class="container" id="color"><h1>Connecté</h1>';
+    echo $_SESSION['ID'].'</div>';
 
 
     echo '<br><br><br>
