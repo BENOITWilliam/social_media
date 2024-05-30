@@ -23,6 +23,7 @@ catch (Exception $e){
 
 echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
 <link rel='stylesheet' href='style.css'>";
+echo "<style>body {background-image : url('documents/site/fond.jpg');background-size: cover;}</style>";
 echo '<body>';
 
 if ($db_found) {
