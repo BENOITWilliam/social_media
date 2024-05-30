@@ -94,3 +94,4 @@ else
                             echo"<center><img src='".$data2['Photo']."' class='img-thumbnail' width='100px' height='100px'>";
                             echo"<h1>" . $data2['Pseudo'] . "</h1> </center>";
                         }
+                        ?><section id="52"></section>
