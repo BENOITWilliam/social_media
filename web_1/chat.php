@@ -30,3 +30,6 @@ if ($iddetinataire==$_SESSION['ID'])
 {
     ?> <meta http-equiv="refresh" content="0; url=http://localhost/web/reseau.php"><?php
 }
+else
+{   if ($db_found)
+    {
