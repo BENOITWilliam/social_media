@@ -114,6 +114,12 @@ if ($db_found) {
                     <button class="btn btn-outline-secondary">Commenter</button>
                     <button class="btn">Enregistrer</button>
                 </div>
+                    <span style="display:none;">
+                    <div class="message-form">
+                    <textarea placeholder="Écrivez votre commentaire ici"></textarea>
+                    <button class="btn btn-outline-primary btn-block">Envoyer le message</button>
+                    </div>
+                    </span>
               </div>';
     }
 
