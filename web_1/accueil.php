@@ -97,7 +97,7 @@ if ($db_found) {
         <img src="' . $user['Photo'] . '" class="rounded-circle" width="50px" height="50px" alt="User Photo">
         <div class="post-info">
         <h5>' . $user['Pseudo'] . '</h5>
-        <small>' . $post['date'] . '</small>
+        <small>' . $post['date'] . "  | " .$post['heure'] . '</small>
         </div>
         </div>
                 <div class="post-body">
