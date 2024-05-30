@@ -105,3 +105,11 @@ else
                     </form>
                     
             </div>
+                    </body>
+        <script>
+                setInterval('load_messages()',500);
+                function load_messages(){
+                    $("#52").load("chargement_messages.php");
+                }
+        </script>
+    </html>
