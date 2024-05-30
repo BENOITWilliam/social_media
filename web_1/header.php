@@ -30,8 +30,9 @@ if ($db_found) {
     $mdp = isset($_POST['mdp']) ? $_POST['mdp'] :'';
 
     if(empty($pseudo) || empty($mdp)){
-        if(empty($pseudo)){echo 'Aucun Pseudo rentré</br>';}
-        if(empty($mdp)){echo 'Aucun MDP rentré</br>';}
+        echo '<div class="error-container">';
+        if(empty($pseudo)){echo '<p class="error-message">Aucun Pseudo rentré</p></br>';}
+        if(empty($mdp)){echo '<p class="error-message">Aucun MDP rentré</p></br>';}
 
         echo '</br><a href=index.html><button class="btn btn-dark">Page Connexion</button></a>';
         exit();
