@@ -32,4 +32,14 @@ if ($iddetinataire==$_SESSION['ID'])
 }
 else
 {   if ($db_found)
-    {
+    { if (isset($_GET['ID']) AND !empty($_GET['ID']))
+        {
+            $sql_user="SELECT * FROM utilisateur WHERE ID=".$iddetinataire;
+            try{
+                $result_user = mysqli_query($db_handle, $sql_user);
+            }
+            catch (Exception $e){
+                $error = $e->getMessage();
+                echo $error;
+                exit();
+            }
