@@ -80,3 +80,17 @@ else
         <body>
             <div class="container w-50" id="color">
                 <div >
+                    <?php
+                        $recup_pseudo="SELECT * FROM utilisateur WHERE  ID='".$iddetinataire."'" ;
+                        try{
+                            $result_pseudo = mysqli_query($db_handle, $recup_pseudo);
+                        }
+                        catch (Exception $e){
+                            $error = $e->getMessage();
+                            echo $error;
+                            exit();
+                        }
+                        while ($data2 = mysqli_fetch_assoc($result_pseudo)) {
+                            echo"<center><img src='".$data2['Photo']."' class='img-thumbnail' width='100px' height='100px'>";
+                            echo"<h1>" . $data2['Pseudo'] . "</h1> </center>";
+                        }
