@@ -43,3 +43,20 @@ else
                 echo $error;
                 exit();
             }
+            if ($result_user->num_rows>0)
+            {
+                if (isset($_POST['envoyer']))
+                {
+                    $message= htmlspecialchars($_POST['message']);
+                    $insertMessage="INSERT INTO message(Message, id_Destinataire, id_Auteur) VALUES ('".$message."','".$_SESSION['ID']."','" .$iddetinataire."')";
+                    try{
+                        $result = mysqli_query($db_handle, $insertMessage);
+                    }
+                    catch (Exception $e){
+                        $error = $e->getMessage();
+                        echo $error;
+                        exit();
+                    }
+                    $insertMessage="";    
+                }
+            }
