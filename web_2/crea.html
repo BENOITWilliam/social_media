@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Création de compte</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='style.css'>
+    </head>
+    <body>
+        <div class="container">
+            <div class="center_connexion">
+                <center><h1>Créer votre compte</h1></center><br>
+                <form method="POST" action="traitement_crea.php">
+                    <div class="container">
+                        <label for="nom">Entrez votre adresse électronique</label>
+                        <input type="email" name="adressemail" placeholder="Adresse électronique" class="form-control" style="width: 500px;height: 40px;"/></br>
+
+                        <label for="nom">Entrez votre Pseudo</label>
+                        <input type="text" name="pseudo" placeholder="Pseudo" class="form-control" style="width: 500px;height: 40px;"/></br>
+
+                        <label for="nom">Entrez votre Mot de Passe</label>
+                        <input type="password" name="mdp" placeholder="Mot de Passe" class="form-control"style="width: 500px;height: 40px;"/></br>
+                        <center>
+                            <span>Vous avez déjà un compte chez nous ? <a href="index.html" style="color:whitesmoke">Connectez vous</a></span>
+                        </center>
+                        <a class="center_connexion_bouton">
+                            <button type="submit" name="soumettre" value="soumettre" class="btn btn-primary">Valider</button></br></br>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>
+
+<style>#color{background-color: white;}</style>
+<style>body {background-image : url('documents/site/fond.jpg');background-size: cover;}</style>
