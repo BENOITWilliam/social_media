@@ -111,7 +111,7 @@ if ($db_found) {
                     <button class="btn btn-outline-primary">Aimer</button>
                 </div>
                 <div class="post-footer-2">
-                    <button class="btn btn-outline-secondary">Commenter</button>
+                    <button class="btn btn-outline-secondary" onclick="afficher();">Commenter</button>
                     <button class="btn">Enregistrer</button>
                 </div>
                     <span style="display:none;">
