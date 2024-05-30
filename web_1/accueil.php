@@ -131,8 +131,3 @@ if ($db_found) {
     echo '</body>';
 }
 ?>
-
-
-}
-
-?>
