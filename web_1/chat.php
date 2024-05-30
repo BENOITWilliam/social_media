@@ -95,3 +95,13 @@ else
                             echo"<h1>" . $data2['Pseudo'] . "</h1> </center>";
                         }
                         ?><section id="52"></section>
+                    </div>
+                
+                    <form method="POST" action="">
+                        <textarea name="message" minlength="1" maxlength="200" placeholder="Enter votre message" autofocus wrap required cols="50" rows="3" style="resize: none; border-radius: 20px; border: none; outline= none; padding-left: 10px; font-size: 16px width: 100%; padding-top: 15px; height=50px"></textarea>
+                        </br></br>
+                        <input type="submit" name="envoyer" value="Envoyer le message"/>
+                        <a href="reseau.php" style="color:black; margin-left: 95%;"> <img src='documents\site\fleche-back.png' alt="fleche-back.png" class='img-thumbnail' width='50px' height='50px'></a>
+                    </form>
+                    
+            </div>
