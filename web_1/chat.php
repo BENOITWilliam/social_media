@@ -23,3 +23,10 @@ catch (Exception $e){
 
 require("importation.php");
 importation();
+
+$iddetinataire= $_GET['ID'];
+echo"<form method='POST'><input type='hidden' id= 'iddetinataire' name='iddetinataire' value='".$_GET['ID']."'>";
+if ($iddetinataire==$_SESSION['ID'])
+{
+    ?> <meta http-equiv="refresh" content="0; url=http://localhost/web/reseau.php"><?php
+}
