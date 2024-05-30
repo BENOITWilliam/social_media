@@ -48,3 +48,22 @@ if ($db_found) {
         echo $error;
         exit();
     }
+echo '<br><br><br><div class="container w-25" id="color">';
+  
+    echo "<table class='table'> <tbody>";
+  
+    while ($data = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo '<td><center><img src="'.$data['Photo'].'" class="img-thumbnail" width="100px" height="100px"></center></td>';
+        echo "
+        <td>
+        <a href='chat.php?ID=".$data['ID']."' style='color:black;'>
+        ". $data['Pseudo']."
+        </a>
+        </td>";
+        echo "</tr>";
+    }
+    echo "</tbody> </table></div>";
+
+}
+?>
