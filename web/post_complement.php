@@ -2,7 +2,7 @@
 
 $database = "likedin";
 session_start();
-//
+
 echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
 <link rel='stylesheet' href='style.css'>";
 echo "<style>body { background-image : url('".$_SESSION['Image']."');background-size: cover;background-attachment: fixed;}</style>";
