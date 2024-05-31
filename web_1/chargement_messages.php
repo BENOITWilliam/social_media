@@ -20,3 +20,6 @@ catch (Exception $e){
     echo $error;
     exit();
 }
+$recup_conv="SELECT * FROM message WHERE (id_auteur = '" .$iddetinataire."' AND id_destinataire='".$_SESSION['ID']."') OR (id_auteur = '" .$_SESSION['ID']."' AND id_destinataire='".$iddetinataire."')";
+try{
+    $result_recup = mysqli_query($db_handle, $recup_conv);
