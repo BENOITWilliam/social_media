@@ -108,5 +108,12 @@ else
                     
             </div>
         </body>
-
+        <?php $url="chargement_messages.php?ID=".$iddetinataire?>;
+        <script>
+                setInterval('load_messages()',500);
+                function load_messages(){
+                    var url_java = <?php echo json_encode($url); ?>;
+                    $('#52').load(url_java);
+                }
+        </script>
     </html>
