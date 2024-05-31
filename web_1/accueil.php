@@ -26,8 +26,9 @@ importation();
 
 if ($db_found) {
 
-    echo '<div class="container" id="color"><h1>Connecté</h1>';
-    echo $_SESSION['ID'].'</div>';
+
+    echo '<center><div class="container" id="color"><h2>ECEin, le social media professionnel pour la communauté ECE Paris</h2></center>';
+    echo '</div>';
 
     echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
           <link rel='stylesheet' href='style.css'>";
