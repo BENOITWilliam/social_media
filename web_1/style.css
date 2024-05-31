@@ -35,7 +35,7 @@ footer {position: absolute; bottom: -130; left: 0; right: 0;}
 
 .container-fluid-accueil {padding-top: 20px;}
 .carousel-item img {height: 300px;object-fit: cover;}
-.post {background-color: #fff;border-radius: 10px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);margin-bottom: 20px;padding: 20px;}
+.post {background-color: rgba(245, 245, 245, 0.9);border-radius: 10px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);margin-bottom: 20px;padding: 20px;}
 .post-vous {background-color: rgba(245, 245, 245, 0.9);border-radius: 10px;border: 5px solid rgb(61, 61, 255);box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);margin-bottom: 20px;padding: 20px;}
 
 .post-header {display: flex;align-items: center;}
