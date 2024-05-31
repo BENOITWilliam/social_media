@@ -29,3 +29,14 @@ catch (Exception $e){
     echo $error;
     exit();
 }
+while ($data = mysqli_fetch_assoc($result_recup)) {
+    if ($data['id_Auteur']==$_SESSION['ID'])
+    {
+        echo"<div class= 'message_auteur'><p>" . $data['Message'] . "</p></div>";
+    }
+    else
+    {
+        echo"<div class= 'message_destinataire'><p>" . $data['Message'] . "</p></div> </br>";
+    }
+}
+?>
