@@ -105,8 +105,8 @@ if ($db_found) {
       $result_user = mysqli_query($db_handle, $sql_user);
       $user = mysqli_fetch_assoc($result_user);
 
-      if (in_array($post['Id_emetteur'],$list_amis)){echo '<div class="post-amis">';}
-      else if ($post['Id_emetteur'] == $_SESSION['ID']){echo '<div class="post-vous">';}
+      if (in_array($post['ID_Emetteur'],$list_amis)){echo '<div class="post-amis">';}
+      else if ($post['ID_Emetteur'] == $_SESSION['ID']){echo '<div class="post-vous">';}
       else{echo '<div class="post">';}
         echo '<div class="post-header">
             <img src="' . $user['Photo'] . '" class="rounded-circle" width="50px" height="50px" alt="User Photo">
