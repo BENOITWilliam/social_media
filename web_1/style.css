@@ -37,7 +37,7 @@ footer {position: absolute; bottom: -130; left: 0; right: 0;}
 .carousel-item img {height: 300px;object-fit: cover;}
 .post {background-color: rgba(245, 245, 245, 0.9);border-radius: 10px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);margin-bottom: 20px;padding: 20px;}
 .post-vous {background-color: rgba(245, 245, 245, 0.9);border-radius: 10px;border: 5px solid rgb(61, 61, 255);box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);margin-bottom: 20px;padding: 20px;}
-
+.post-amis {background-color: rgba(245, 245, 245, 0.9);border-radius: 10px;border: 5px solid rgb(0, 214, 0);box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);margin-bottom: 20px;padding: 20px;}
 .post-header {display: flex;align-items: center;}
 .post-header img {margin-right: 15px;}
 .post-info h5 {margin: 0;}
