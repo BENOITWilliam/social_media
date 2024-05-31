@@ -111,28 +111,28 @@ if ($db_found) {
         echo '<div class="post-header">
             <img src="' . $user['Photo'] . '" class="rounded-circle" width="50px" height="50px" alt="User Photo">
             <div class="post-info">';            
-            if (in_array($post['Id_emetteur'],$list_amis)){
+            if (in_array($post['ID_Emetteur'],$list_amis)){
               echo '<h5>' . $user['Pseudo'] . " - " .'<small>Votre amis</small></h5>';
             }
-            else if ($post['Id_emetteur'] == $_SESSION['ID']){
+            else if ($post['ID_Emetteur'] == $_SESSION['ID']){
               echo '<h5>' . $user['Pseudo'] . " - " .'<small>Vous</small></h5>';
             }
             else {
               echo '<h5>' . $user['Pseudo'] . '</h5>';
             }
-            echo'<small>' . $post['date'] . "  | " .$post['heure'] . '</small>
+            echo'<small>' . $post['Date'] . "  | " .$post['Heure'] . '</small>
             </div>
             </div>
                     <div class="post-body">
                       <div class="row">
                         <div class="col-sm-4">
-                          <img src="' . $post['lien'] . '" width="200px" height="200px" alt="Photo">
+                          <img src="' . $post['Lien'] . '" width="200px" height="200px" alt="Photo">
                         </div>
                         <div class="col-sm-8">
                           <div class="text-right">
-                          <p>' . $post['description'] . '</p>
+                          <p>' . $post['Description'] . '</p>
                           </br></br>
-                          <p>' . $post['lieu'] . '</p>
+                          <p>' . $post['Lieu'] . '</p>
                           </div>  
                           </div>
                           </div>
