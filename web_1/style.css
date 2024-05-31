@@ -51,3 +51,110 @@ footer {position: absolute; bottom: -130; left: 0; right: 0;}
 
 #chatBtn {position: fixed;left: 88%;bottom: 15%;width: auto;max-width: 10%;
 }
+
+
+#carou {
+  position:fixed;
+  bottom:5%;
+  left:5%;
+  width: 300px;
+  height: 500px;
+  animation: hide-scroll 5s backwards;
+  background-color: rgba(245, 245, 245, 0.9);
+  border-radius: 10px;
+}
+
+@keyframes hide-scroll {
+  0% { overflow: hidden; } 
+  100% { overflow: auto; }
+}
+
+
+.carousel {
+  border: 5px solid rgb(212, 212, 212);
+  border-radius: 8px;
+}
+
+.carousel-inner, .carousel, .carousel-item, .carousel-container {
+  height: 100%;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+}
+
+.carousel-item-prev:not(.carousel-item-end), .active.carousel-item-start {
+  transform: translate3d(0%, -100%, 0);
+  -webkit-transform: translate3d(0%, -100%, 0);
+  -moz-transform: translate3d(0%, -100%, 0);
+  -ms-transform: translate3d(0%, -100%, 0);
+  -o-transform: translate3d(0%, -100%, 0);
+}
+
+.carousel-item-next:not(.carousel-item-start), .active.carousel-item-end {
+  transform: translate3d(0%, 100%, 0);
+  -webkit-transform: translate3d(0%, 100%, 0);
+  -ms-transform: translate3d(0%, 100%, 0);
+  -moz-transform: translate3d(0%, 100%, 0);
+  -o-transform: translate3d(0%, 100%, 0);
+}
+
+.carousel-indicators {
+  top: 0;
+  margin: auto;
+  height: 20px;
+  right: 10px;
+  left: auto;
+  display: block;
+}
+
+.carousel-indicators [data-bs-target] {
+  background: none;
+  border: 2px solid white;
+  border-radius: 12px;
+  width: 12px;
+  height: 12px;
+  margin-bottom: 5px;
+}
+
+.carousel-indicators li.active {
+  background: white;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  width: 4rem;
+  height: 4rem;
+  position: fixed;
+  top: 90%;
+  left: 15%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  z-index: -1;
+}
+
+.carousel-control-prev-icon {
+  top: 34%;
+}
+
+.carousel-control-next-icon {
+  top: 90%;
+}
+
+.unclickable {
+  pointer-events: none;
+}
+
+.clickable {
+  pointer-events: all;
+}
+
+.img-style {
+  width: calc(1.475rem + 2.7vw);
+}
+
+.img-style:hover {
+  width: calc(1.475rem + 2.7vw);
+}
+
+.roll-in-blurred-right {
+    -webkit-animation: roll-in-blurred-right 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+            animation: roll-in-blurred-right 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}
