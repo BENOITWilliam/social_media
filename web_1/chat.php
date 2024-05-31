@@ -97,6 +97,8 @@ else
                         ?><section id="52"></section>
                     </div>
                 
+                </div>
+                
                     <form method="POST" action="">
                         <textarea name="message" minlength="1" maxlength="200" placeholder="Enter votre message" autofocus wrap required cols="50" rows="3" style="resize: none; border-radius: 20px; border: none; outline= none; padding-left: 10px; font-size: 16px width: 100%; padding-top: 15px; height=50px"></textarea>
                         </br></br>
@@ -105,11 +107,6 @@ else
                     </form>
                     
             </div>
-                    </body>
-        <script>
-                setInterval('load_messages()',500);
-                function load_messages(){
-                    $("#52").load("chargement_messages.php");
-                }
-        </script>
+        </body>
+
     </html>
