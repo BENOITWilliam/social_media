@@ -81,7 +81,8 @@ if ($db_found) {
 
    
     /*-------------------------------------------------------------------------------------------------------------------------------*/
-    /*-------------------------------------------------------------------------------------------------------------------------------*/    
+    /*-------------------------------------------------------------------------------------------------------------------------------*/
+   
 
 
     echo '<div class="col-md-8">';
@@ -94,14 +95,14 @@ if ($db_found) {
     $sql_relation = "SELECT * FROM `relation` WHERE ID_demandeur_ami = ".$_SESSION['ID']."";
     $result_relation = mysqli_query($db_handle, $sql_relation);
     $i = 0;
-    
+
     while($amis = mysqli_fetch_assoc($result_relation)){
       $list_amis[$i] = "".$amis['ID_ami']."";
       $i +=1;
     }
 
     while ($post = mysqli_fetch_assoc($result_post)) {
-      $user_id = $post['Id_emetteur'];
+      $user_id = $post['ID_Emetteur'];
       $sql_user = "SELECT * FROM utilisateur WHERE ID = $user_id";
       $result_user = mysqli_query($db_handle, $sql_user);
       $user = mysqli_fetch_assoc($result_user);
@@ -152,7 +153,7 @@ if ($db_found) {
             <button class="btn btn-outline-primary btn-block">Envoyer le commentaire</button>
         </div>
     </span>
-                  </div>';
+    </div>';
     }
     
     echo '</div>
@@ -195,4 +196,5 @@ if ($db_found) {
 
     echo '</body>';
 }
+
 ?>
