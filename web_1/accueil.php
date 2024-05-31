@@ -79,12 +79,23 @@ if ($db_found) {
     echo '</div>';
 
    
-    echo '<div class="col-md-9">';
+    
+
+    echo '<div class="col-md-8">';
     echo '<div class="feed">';
 
     
     $sql_post = "SELECT * FROM post ORDER BY date DESC";
     $result_post = mysqli_query($db_handle, $sql_post);
+
+    $sql_relation = "SELECT * FROM `relation` WHERE ID_demandeur_ami = ".$_SESSION['ID']."";
+    $result_relation = mysqli_query($db_handle, $sql_relation);
+    $i = 0;
+    
+    while($amis = mysqli_fetch_assoc($result_relation)){
+      $list_amis[$i] = "".$amis['ID_ami']."";
+      $i +=1;
+    }
 
     while ($post = mysqli_fetch_assoc($result_post)) {
       $user_id = $post['Id_emetteur'];
@@ -92,38 +103,83 @@ if ($db_found) {
       $result_user = mysqli_query($db_handle, $sql_user);
       $user = mysqli_fetch_assoc($result_user);
 
-        echo '<div class="post">
-        <div class="post-header">
-        <img src="' . $user['Photo'] . '" class="rounded-circle" width="50px" height="50px" alt="User Photo">
-        <div class="post-info">
-        <h5>' . $user['Pseudo'] . '</h5>
-        <small>' . $post['date'] . "  | " .$post['heure'] . '</small>
-        </div>
-        </div>
-                <div class="post-body">
-                    <p>' . $post['lien'] . '</p>
-                    <p>' . $post['description'] . '</p>
-                    <p>' . $post['date'] . '</p>
-                    <p>' . $post['lieu'] . '</p>
-                    <p>' . $post['heure'] . '</p>
-                </div>
-                <div class="post-footer-1">
-                    <button class="btn btn-outline-primary">Aimer</button>
-                </div>
-                <div class="post-footer-2">
-                    <button class="btn btn-outline-secondary" onclick="afficher();">Commenter</button>
-                    <button class="btn">Enregistrer</button>
-                </div>
-                    <span style="display:none;">
-                    <div class="message-form">
-                    <textarea placeholder="Écrivez votre commentaire ici"></textarea>
-                    <button class="btn btn-outline-primary btn-block">Envoyer le message</button>
+      if (in_array($post['Id_emetteur'],$list_amis)){echo '<div class="post-amis">';}
+      else if ($post['Id_emetteur'] == $_SESSION['ID']){echo '<div class="post-vous">';}
+      else{echo '<div class="post">';}
+        echo '<div class="post-header">
+            <img src="' . $user['Photo'] . '" class="rounded-circle" width="50px" height="50px" alt="User Photo">
+            <div class="post-info">';            
+            if (in_array($post['Id_emetteur'],$list_amis)){
+              echo '<h5>' . $user['Pseudo'] . " - " .'<small>Votre amis</small></h5>';
+            }
+            else if ($post['Id_emetteur'] == $_SESSION['ID']){
+              echo '<h5>' . $user['Pseudo'] . " - " .'<small>Vous</small></h5>';
+            }
+            else {
+              echo '<h5>' . $user['Pseudo'] . '</h5>';
+            }
+            echo'<small>' . $post['date'] . "  | " .$post['heure'] . '</small>
+            </div>
+            </div>
+                    <div class="post-body">
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <img src="' . $post['lien'] . '" width="200px" height="200px" alt="Photo">
+                        </div>
+                        <div class="col-sm-8">
+                          <div class="text-right">
+                          <p>' . $post['description'] . '</p>
+                          </br></br>
+                          <p>' . $post['lieu'] . '</p>
+                          </div>  
+                          </div>
+                          </div>
+                        </div>
+                    <div class="post-footer-1">
+                        <button class="btn btn-outline-primary">Aimer</button>
                     </div>
-                    </span>
-              </div>';
+                    <div class="post-footer-2">
+                        <button class="btn btn-outline-secondary" onclick="afficher();">Commenter</button>
+                        <button class="btn" onclick="affichercom();">Afficher les commentaires</button>
+                    </div>
+                    </br>
+    <span id="comment-form">
+        <div class="message-form">
+            <textarea placeholder="Écrivez votre commentaire ici"></textarea></br></br>
+            <button class="btn btn-outline-primary btn-block">Envoyer le commentaire</button>
+        </div>
+    </span>
+                  </div>';
+    }
+    
+    echo '</div>
+  
+    <style>
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-size: 16px;
+      resize: none;
     }
 
-    echo '</div>';
+
+    <script type="text/javascript">
+    function afficher(comment-form) {
+        var commentForm = document.getElementById("comment-form");
+        if (commentForm.style.display === "none") {
+            commentForm.style.display = "inline";
+        } else {
+            commentForm.style.display = "none";
+        }
+    }
+</script>
+
+';
     echo '</div>';
 
     echo '</div>';
