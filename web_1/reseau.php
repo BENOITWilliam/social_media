@@ -23,10 +23,13 @@ catch (Exception $e){
 
 require("importation.php");
 importation();
+
+
 if ($db_found) {
     echo '<br><br><br><div class="container" id="color"><h1> rechercher un profil : </h1>
     <form method="POST">
     <input type="text" name="recherche" placeholder="recherche" class="form-control"/> <br>
+    <button type="submit" name="soumettre" value="soumettre" class="btn btn-primary">Rechercher</button></br>
     <button type="submit" name="soumettre" value="soumettre" class="btn btn-primary">Rechercher</button></br>
     </form>
     <br>
@@ -48,7 +51,8 @@ if ($db_found) {
         echo $error;
         exit();
     }
-echo '<br><br><br><div class="container w-25" id="color">';
+  
+    echo '<br><br><br><div class="container w-25" id="color">';
   
     echo "<table class='table'> <tbody>";
   
