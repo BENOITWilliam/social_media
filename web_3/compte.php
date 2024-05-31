@@ -1,13 +1,10 @@
 <?php
 
 $database = "likedin";
-$hostname = "localhost:3308";
-$username = "root";
-$password = "";
 session_start();
 
 try {
-    $db_handle = mysqli_connect($hostname,$username,$password);
+  $db_handle = mysqli_connect('localhost', 'root', 'root');
 }
 catch (Exception $e){
     $error = $e->getMessage();
