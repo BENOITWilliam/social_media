@@ -40,7 +40,7 @@ if ($db_found) {
 
     echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
     
-          <link rel='stylesheet' href='test.css'>";
+          <link rel='stylesheet' href='style.css'>";
     echo '<body>';
 
     echo '<div class="container-fluid-accueil">';
