@@ -3,7 +3,7 @@
 $database = "likedin";
 $hostname = "localhost:3308";
 $username = "root";
-$password = "";
+$password = "root";
 session_start();
 
 try {
