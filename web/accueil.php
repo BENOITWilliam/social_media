@@ -1,5 +1,5 @@
 <?php
-//
+
 $database = "likedin";
 session_start();
 
