@@ -1,8 +1,8 @@
-  <?php
+<?php
 
 $database = "likedin";
 session_start();
-//
+
 try {
     $db_handle = mysqli_connect('localhost', 'root', 'root');
 }
